@@ -60,7 +60,7 @@ export const Navbar = (props) => {
       </nav>
       <Routes>
         <Route
-          path="/"
+          exact path="/"
           element={
             <Home data={props.data} add={addCoin} getChartData={getChartData} />
           }
