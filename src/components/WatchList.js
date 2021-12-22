@@ -48,7 +48,7 @@ export const WatchList = (props) => {
                 </div>
               );
             })
-          : null}
+          : <p>Nothing in list</p>}
       </div>
     </>
   );
