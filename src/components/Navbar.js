@@ -47,7 +47,7 @@ export const Navbar = (props) => {
       <nav className="navbar-container">
         <ul className="nav">
           <li>
-            <Link to="/" className="nav-links">
+            <Link to="/CryptoTracker/" className="nav-links">
               Home
             </Link>
           </li>
@@ -60,7 +60,7 @@ export const Navbar = (props) => {
       </nav>
       <Routes>
         <Route
-          exact path="/"
+          exact path="/CryptoTracker"
           element={
             <Home data={props.data} add={addCoin} getChartData={getChartData} />
           }
