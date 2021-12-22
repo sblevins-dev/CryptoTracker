@@ -1,0 +1,92 @@
+.bar-container {
+  height: 80px;
+  min-width: 600px;
+  background: linear-gradient(
+    0.25turn,
+    rgb(17, 0, 59),
+    rgb(29, 22, 85),
+    rgb(17, 0, 59)
+  );
+  border-radius: 5px;
+  margin: 10px;
+  border: none;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.bar-container:hover {
+  transform: scale(105%);
+}
+
+.view {
+  background: radial-gradient(#602399, #340a64);
+  background-repeat: no-repeat;  font-weight: bold;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  letter-spacing: .1rem;
+  cursor:pointer;
+  text-shadow: 0 0 5px rgb(255, 255, 255), 
+                0 0 10px rgb(192, 192, 192);
+}
+
+.bar-img {
+  display: inherit;
+  flex-direction: inherit;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100%;
+  padding: 0 50px 0 20px;
+}
+
+.bar-img img {
+  height: 100%;
+  padding-right: 0;
+}
+
+.bar-header p {
+  flex-basis: 100%;
+}
+
+.bar-data {
+  margin-right: 0;
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  text-align: right;
+}
+
+.stock-name {
+  font-size: 0.9rem;
+}
+
+.sym-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn {
+  padding-left: 10px;
+}
+
+.plus {
+    color: green;
+}
+
+.minus {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

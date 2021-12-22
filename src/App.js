@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./css/App.css";
+import React, { useState, useEffect } from "react";
+import { Navbar } from "./components/Navbar";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  // const url = "https://jsonplaceholder.typicode.com/users";
+  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false';
+
+
+  const getCoinData = async () => {
+    const res = await fetch(url);
+    const data = await res.json();
+    setData(data);
+  };
+
+  useEffect(() => {
+    getCoinData()
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navbar data={data}/>
+      </BrowserRouter>
     </div>
   );
 }
