@@ -60,7 +60,7 @@ export const Navbar = (props) => {
       </nav>
       <Routes>
         <Route
-          exact path="/CryptoTracker"
+          exact path="/CryptoTracker/"
           element={
             <Home data={props.data} add={addCoin} getChartData={getChartData} />
           }
