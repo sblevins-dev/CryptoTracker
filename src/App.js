@@ -64,7 +64,7 @@ function App() {
         <Routes>
           <Route
             exact
-            path="/CryptoTracker/"
+            path="CryptoTracker/"
             element={
               <Home data={data} add={addCoin} getChartData={getChartData} />
             }

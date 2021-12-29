@@ -6,6 +6,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export const Home = (props) => {
   const [search, setSearch] = useState("");
+  const [isShown, setIsShown] = useState(false);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -39,7 +40,8 @@ export const Home = (props) => {
               </div>
               <div className="stock-name">
                 <h1>{stock.name}</h1>
-                <div className="sym-container" onClick={() => props.add(stock)}>
+                <div className="sym-container" 
+                   onClick={() => props.add(stock)}>
                   <p className="bar-symbol">{stock.symbol}</p>
                   <FontAwesomeIcon
                     icon={faPlus}
