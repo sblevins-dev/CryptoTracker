@@ -1,7 +1,7 @@
 import "./css/App.css";
 import React, { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./components/Home";
 import { WatchList } from "./components/WatchList";
 
@@ -59,7 +59,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Navbar data={data} />
         <Routes>
           <Route
@@ -74,7 +74,7 @@ function App() {
             element={<WatchList data={list} remove={removeCoin} />}
           />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
