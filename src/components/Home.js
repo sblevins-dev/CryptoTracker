@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../css/App.css";
 import "../css/Stock.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,8 +7,6 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 export const Home = (props) => {
   const [search, setSearch] = useState("");
 
-  const [coins, setCoins] = useState([]);
-
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
@@ -16,8 +14,6 @@ export const Home = (props) => {
   const filteredStocks = props.data.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
-
-  var index;
 
   return (
     <>

@@ -23,13 +23,13 @@ function App() {
   let newData = [];
   const getChartData = async (coin) => {
     let timestamp = Date.now();
-    
+
     if (coin != undefined) {
       const chartUrl = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart/range?vs_currency=usd&from=1624407061&to=${timestamp}`;
-      
+
       try {
         const res = await fetch(chartUrl, { mode: "cors" });
-        const data = await res.json(); 
+        const data = await res.json();
         data.prices.map((month, index) => {
           if (index % 30 == 0) {
             newData.push(month);
@@ -38,14 +38,14 @@ function App() {
       } catch (err) {
         console.log(err);
       }
-      setGraphData(newData)
-      console.log(newData)
+      setGraphData(newData);
+      console.log(newData);
     }
   };
 
   // const url = "https://jsonplaceholder.typicode.com/users";
-  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false';
-
+  const url =
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false";
 
   const getCoinData = async () => {
     const res = await fetch(url);
@@ -54,27 +54,26 @@ function App() {
   };
 
   useEffect(() => {
-    getCoinData()
-  }, [])
+    getCoinData();
+  }, []);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar data={data}/>
+        <Navbar data={data} />
         <Routes>
-        <Route
-          exact path="/CryptoTracker/"
-          element={
-            <Home data={data} add={addCoin} getChartData={getChartData} />
-          }
-        />
-        <Route
-          path="watchlist"
-          element={
-            <WatchList data={list} remove={removeCoin} />
-          }
-        />
-      </Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <Home data={data} add={addCoin} getChartData={getChartData} />
+            }
+          />
+          <Route
+            path="watchlist"
+            element={<WatchList data={list} remove={removeCoin} />}
+          />
+        </Routes>
       </BrowserRouter>
     </div>
   );
