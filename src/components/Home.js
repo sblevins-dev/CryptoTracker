@@ -57,9 +57,9 @@ export const Home = (props) => {
                   ${stock.current_price.toLocaleString()}
                 </p>
                 {stock.price_change_percentage_24h != null ? (
-                  stock.priceChange < 0 ? (
+                  stock.price_change_percentage_24h < 0.00 ? (
                     <p className="bar-percent red">
-                      {price_change_percentage_24h.toFixed(2)}%
+                      {stock.price_change_percentage_24h.toFixed(2)}%
                     </p>
                   ) : (
                     <p className="coin-percent green">

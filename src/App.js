@@ -64,13 +64,13 @@ function App() {
         <Routes>
           <Route
             exact
-            path="CryptoTracker/"
+            path={"/"}
             element={
               <Home data={data} add={addCoin} getChartData={getChartData} />
             }
           />
           <Route
-            path="watchlist"
+            path={"/watchlist"}
             element={<WatchList data={list} remove={removeCoin} />}
           />
         </Routes>
