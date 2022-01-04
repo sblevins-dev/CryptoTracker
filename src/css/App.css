@@ -1,87 +1,105 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 html {
-    height: calc(100vh - 50px);
-    background-color: rgb(9, 0, 31);
+  height: calc(100vh - 50px);
+  background-color: rgb(9, 0, 31);
 }
 
 body {
-    height: inherit;
+  height: inherit;
 }
 #root {
-    height: inherit;
+  height: inherit;
 }
 
 .navbar-container {
-    background-color: rgb(9, 0, 31);
-    height: 60px;
-    width: 100%;
-    padding: 20px;
+  background-color: rgb(9, 0, 31);
+  height: 60px;
+  width: 100%;
+  padding: 20px;
 }
 
 .nav {
-    height: 100%;
-    font-size: 1.5rem;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    list-style-type: none;
+  height: 100%;
+  font-size: 1.5rem;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style-type: none;
+  justify-content: space-evenly;
+  margin-left: 15px;
+  padding-bottom: 10px;
 }
 
 .nav-links {
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-    font-weight: 600;
-    text-shadow: 0 0 10px rgb(149, 0, 235), 
-                 0 0 20px rgb(56, 25, 129);
-    cursor: pointer;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgb(149, 0, 235), 0 0 20px rgb(56, 25, 129);
+  cursor: pointer;
+  padding: 20px;
 }
 
 .nav-links:hover {
-    text-shadow: 0 0 10px rgb(149, 0, 235), 
-                 0 0 20px rgb(149, 0, 235),
-                 0 0 30px rgb(149, 0, 235),
-                 0 0 40px rgb(149, 0, 235);
+  text-shadow: 0 0 10px rgb(149, 0, 235), 0 0 20px rgb(149, 0, 235),
+    0 0 30px rgb(149, 0, 235), 0 0 40px rgb(149, 0, 235);
 }
 
 .main-container {
-    height: 100%;
-    background-color: rgb(9, 0, 31);
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: top;
-    color: white;
+  height: 100%;
+  background-color: rgb(9, 0, 31);
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+  color: white;
 }
 
 .stock-search {
-    background-color: rgb(9, 0, 31);
-    color: white;
-    width: 100%;
-    padding: 40px;
-    text-align: center;
+  background-color: rgb(9, 0, 31);
+  color: white;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
 }
 
 .search-header {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    text-shadow: 0 0 5px rgb(0, 188, 235), 
-                 0 0 10px rgb(0, 188, 235);
-    cursor: default;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px rgb(0, 188, 235), 0 0 10px rgb(0, 188, 235);
+  cursor: default;
 }
 
 .search-input {
-    border-radius: 5px;
-    padding: 5px;
+  border-radius: 5px;
+  padding: 5px;
 }
 
+.chart-container {
+  width: 60%;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  body {
+    width: 100vw;
+  }
+  .chart-container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .chart-container {
+    width: 30%;
+  }
+}

@@ -33,31 +33,33 @@ export const Home = (props) => {
       <div className="main-container">
         {filteredStocks.map((stock) => {
           return (
-            <div key={stock.id} className="bar-container" onClick={() => props.getChartData(stock)}>
-              <div className="view">View</div>
+            <div key={stock.id} className="bar-container">
+              <div
+                className="view"
+                onClick={() =>
+                  props.getChartData(stock, stock.price_change_percentage_24h)
+                }
+              >
+                View
+              </div>
               <div className="bar-img">
                 <img src={stock.image} alt="crypto" />
               </div>
               <div className="stock-name">
                 <h1>{stock.name}</h1>
-                <div className="sym-container" 
-                   onClick={() => props.add(stock)}>
+                <div className="sym-container" onClick={() => props.add(stock)}>
                   <p className="bar-symbol">{stock.symbol}</p>
-                  <FontAwesomeIcon
-                    icon={faPlus}
-                    className="plus btn"
-                  />
+                  <FontAwesomeIcon icon={faPlus} className="plus btn" />
                   <p className="plus">Add</p>
                 </div>
               </div>
-              <div className="bar-chart-container">
-              </div>
+
               <div className="bar-data">
                 <p className="bar-price">
                   ${stock.current_price.toLocaleString()}
                 </p>
                 {stock.price_change_percentage_24h != null ? (
-                  stock.price_change_percentage_24h < 0.00 ? (
+                  stock.price_change_percentage_24h < 0.0 ? (
                     <p className="bar-percent red">
                       {stock.price_change_percentage_24h.toFixed(2)}%
                     </p>

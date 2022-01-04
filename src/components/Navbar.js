@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "../css/App.css";
 
 export const Navbar = () => {
-
   return (
     <div>
       <nav className="navbar-container">
@@ -16,12 +15,11 @@ export const Navbar = () => {
           </li>
           <li>
             <Link to="/watchlist" className="nav-links">
-              Watch-List
+              Watch
             </Link>
           </li>
         </ul>
       </nav>
-
     </div>
   );
 };
