@@ -42,14 +42,16 @@ const options = {
 };
 
 const labels = [
-  "Jun-2020",
-  "Jul-2020",
-  "Aug-2020",
-  "Sep-2020",
-  "Oct-2020",
-  "Nov-2020",
-  "Dec-2020",
-  "Jan-2021",
+  "Jun-2021",
+  "Jul-2021",
+  "Aug-2021",
+  "Sep-2021",
+  "Oct-2021",
+  "Nov-2021",
+  "Dec-2021",
+  "Jan-2022",
+  "Feb-2022",
+  "Mar-2022"
 ];
 
 export const Chart = (props) => {
