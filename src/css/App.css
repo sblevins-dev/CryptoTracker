@@ -85,8 +85,38 @@ body {
 }
 
 .chart-container {
+  
   width: 60%;
   margin: auto;
+}
+
+.chart-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.chart-buttons button {
+  height: 40px;
+  width: 50px;
+  font-weight: bolder;
+  cursor: pointer;
+  background-color: rgb(9, 0, 31);
+  color: white;
+  border: 1px solid rgb(114, 114, 114);
+  border-radius: 10px;
+}
+
+.chart-buttons button:hover {
+  text-shadow: 0 0 10px rgb(149, 0, 235), 0 0 20px rgb(149, 0, 235),
+    0 0 30px rgb(149, 0, 235), 0 0 40px rgb(149, 0, 235);
+  box-shadow: 0 0 10px rgba(149, 0, 235, 0.808), 0 0 20px rgba(149, 0, 235, 0.808),
+    0 0 30px rgba(149, 0, 235, 0.562), 0 0 40px rgba(149, 0, 235, 0.281);
+}
+
+.middle {
+  margin: 0 20px;
 }
 
 @media (max-width: 600px) {

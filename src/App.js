@@ -5,14 +5,25 @@ import { Routes, Route } from "react-router-dom";
 import { Home } from "./components/Home";
 import { WatchList } from "./components/WatchList";
 import { Chart } from "./components/Chart";
+import coinGecko from "./api/coinGecko";
 
 function App() {
   const [data, setData] = useState([]);
   const [list, setList] = useState([]);
-  const [graphData, setGraphData] = useState([]);
+  const [graphData, setGraphData] = useState({});
   const [coinName, setCoinName] = useState("");
   const [isBool, setIsBool] = useState(true);
 
+  const formatData = (data) => {
+    return data.map((el) => {
+      return {
+        x: el[0],
+        y: el[1].toFixed(2),
+      };
+    });
+  };
+
+  // Add coin to watchlist
   function addCoin(newCoin) {
     if (!list.includes(newCoin)) {
       setList((oldList) => [...oldList, newCoin]);
@@ -20,34 +31,55 @@ function App() {
     }
   }
 
+  // Remove coin from watchlist
   function removeCoin(coin) {
     setList(list.filter((item) => item.id != coin.id));
     alert("Removed from Watch-List");
   }
 
-  //Array to hold data returned from coin
-  let newData = [];
-
   //function to fetch price data from coin clicked
   const getChartData = async (coin, price) => {
-    let timestamp = Date.now();
-
     if (coin != undefined) {
-      const chartUrl = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart/range?vs_currency=usd&from=1624407061&to=${timestamp}`;
-
       try {
-        const res = await fetch(chartUrl, { mode: "cors" });
-        const data = await res.json();
-        data.prices.map((month, index) => {
-          if (index % 30 == 0) {
-            newData.push(month);
-          }
+        const [day, week, year] = await Promise.all([
+          coinGecko.get(`/${coin.id}/market_chart/`, {
+            params: {
+              vs_currency: "usd",
+              days: "1",
+            },
+          }),
+          coinGecko.get(`/${coin.id}/market_chart/`, {
+            params: {
+              vs_currency: "usd",
+              days: "7",
+            },
+          }),
+          coinGecko.get(`/${coin.id}/market_chart/`, {
+            params: {
+              vs_currency: "usd",
+              days: "365",
+            },
+          }),
+        ]);
+        setGraphData({
+          day: formatData(day.data.prices),
+          week: formatData(week.data.prices),
+          year: formatData(year.data.prices),
+          detail: `${coin.id}`
         });
-        newData.push(data.prices[data.prices.length - 1]);
+        // const res = await fetch(chartUrl);
+        // const data = await res.json();
+        // console.log(data)
+        // setGraphData(data.prices)
+        // data.prices.map((month, index) => {
+        //   if (index % 30 == 0) {
+        //     newData.push(month);
+        //   }
+        // });
+        // newData.push(data.prices[data.prices.length - 1]);
       } catch (err) {
         console.log(err);
       }
-      setGraphData(newData);
       setCoinName(coin.id);
       if (price < 0.0) {
         setIsBool(false);
@@ -57,18 +89,23 @@ function App() {
     }
   };
 
-  // const url = "https://jsonplaceholder.typicode.com/users";
-  const url =
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false";
-
-  const getCoinData = async () => {
-    const res = await fetch(url);
-    const data = await res.json();
-    setData(data);
+  // Get coin list
+  const getCoinList = async () => {
+    const res = await coinGecko.get("/markets", {
+      params: {
+        vs_currency: "usd",
+        order: "market_cap_desc",
+        per_page: "50",
+        page: "1",
+        sparkline: "false",
+      },
+    });
+    setData(res.data);
   };
 
   useEffect(() => {
-    getCoinData();
+    // Call for coin list on page load
+    getCoinList();
   }, []);
 
   return (

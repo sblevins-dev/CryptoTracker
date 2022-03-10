@@ -8,9 +8,12 @@ import {
   Title,
   Tooltip,
   Legend,
+  TimeScale,
   registerables,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import "chartjs-adapter-date-fns";
+import { dataOptions } from "../chartConfigs/config";
 
 ChartJS.register(
   CategoryScale,
@@ -19,78 +22,57 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  TimeScale
 );
 
-const options = {
-  responsive: true,
-  plugins: {
-    color: "green",
-    legend: {
-      position: "top",
-      labels: {
-        color: "white",
-        fontColor: "white",
-      },
-    },
-    title: {
-      display: true,
-      text: "Chart.js Coin chart",
-      color: "white",
-    },
-  },
-};
-
-const labels = [
-  "Jun-2021",
-  "Jul-2021",
-  "Aug-2021",
-  "Sep-2021",
-  "Oct-2021",
-  "Nov-2021",
-  "Dec-2021",
-  "Jan-2022",
-  "Feb-2022",
-  "Mar-2022"
-];
-
-export const Chart = (props) => {
-  const [name, setName] = useState("");
-  const [data, setData] = useState([]);
+export const Chart = ({ data, isPos }) => {
+  const { day, week, year, detail } = data;
   const [col, setColor] = useState("");
+  const [timeFormat, setTimeFormat] = useState("24h");
+
+  const determineTimeFormat = () => {
+    switch (timeFormat) {
+      case "24h":
+        return day;
+      case "7d":
+        return week;
+      case "1y":
+        return year;
+      default:
+        return day;
+    }
+  };
 
   useEffect(() => {
-    let priceArr = [];
-    props.data.map((price) => {
-      priceArr.push(price[1]);
-    });
-    setData(priceArr);
-    setName(props.name);
-    graphData.datasets.label = name;
-    graphData.datasets.data = data;
-    if (props.isPos) {
+    if (isPos) {
       setColor("green");
     } else {
       setColor("red");
     }
-  }, [props]);
+  });
 
-  const graphData = {
-    labels,
+  const dataSet = {
+    type: "line",
     datasets: [
       {
-        label: name,
-        data: data,
+        label: `${detail}`,
+        data: determineTimeFormat(),
         borderColor: `${col}`,
         backgroundColor: `${col}`,
-        tension: 0.1,
+        pointRadius: 2,
       },
     ],
   };
 
   return (
     <>
-      <Line options={options} data={graphData} />
+      <Line options={dataOptions} data={dataSet} />
+      <div className="chart-buttons">
+        <button className="btn-day" onClick={() => setTimeFormat("24h")} >24h</button>
+        <button className="btn-week middle" onClick={() => setTimeFormat("7d")} >7d</button>
+        <button className="btn-year" onClick={() => setTimeFormat("1y")} >1y</button>
+      </div>
     </>
   );
 };
