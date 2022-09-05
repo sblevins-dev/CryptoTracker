@@ -30,6 +30,29 @@ export const Chart = ({ data, isPos }) => {
   const [col, setColor] = useState("");
   const [timeFormat, setTimeFormat] = useState("24h");
 
+  const runColorCheck = () => {
+    let time;
+    switch (timeFormat) {
+      case "24h":
+        time = day;
+        break;
+      case "7d":
+        time = week;
+        break;
+      case "1y":
+        time = year;
+        break;
+      default:
+        time = day;
+        break;
+    }
+    if (time && time[time.length - 1].y > time[time.length - 2].y) {
+      setColor("#00c629");
+    } else {
+      setColor("#ff2d2d");
+    }
+  }
+
   const determineTimeFormat = () => {
     switch (timeFormat) {
       case "24h":
@@ -43,12 +66,10 @@ export const Chart = ({ data, isPos }) => {
     }
   };
 
+  
+
   useEffect(() => {
-    if (isPos) {
-      setColor("#00c629");
-    } else {
-      setColor("#ff2d2d");
-    }
+    runColorCheck(timeFormat)
   }, [timeFormat]);
 
   let dataSet = {
