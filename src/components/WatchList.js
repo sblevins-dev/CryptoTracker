@@ -25,14 +25,14 @@ export const WatchList = (props) => {
                 </div>
                 <div className="stock-name">
                   <h1>{stock.name}</h1>
-                  <div
-                    className="sym-container"
-                    onClick={() => props.remove(stock)}
-                  >
-                    <p className="bar-symbol">{stock.symbol}</p>
-                    <FontAwesomeIcon className="minus btn" icon={faMinus} />
-                    <p className="minus">Remove</p>
-                  </div>
+                </div>
+                <div
+                  className="sym-container"
+                  onClick={() => props.remove(stock)}
+                >
+                  <p className="bar-symbol">{stock.symbol}</p>
+                  <FontAwesomeIcon className="minus btn" icon={faMinus} />
+                  <p className="minus">Remove</p>
                 </div>
                 <div className="bar-data">
                   <p className="bar-price">

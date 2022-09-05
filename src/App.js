@@ -120,7 +120,7 @@ function App() {
           exact
           path="/"
           element={
-            <Home data={data} add={addCoin} getChartData={getChartData} />
+            <Home data={data} watchlist={list} remove={removeCoin} add={addCoin} getChartData={getChartData} />
           }
         />
         <Route

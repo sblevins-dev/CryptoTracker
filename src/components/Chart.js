@@ -46,13 +46,13 @@ export const Chart = ({ data, isPos }) => {
 
   useEffect(() => {
     if (isPos) {
-      setColor("green");
+      setColor("#00c629");
     } else {
-      setColor("red");
+      setColor("#ff2d2d");
     }
-  });
+  }, [timeFormat]);
 
-  const dataSet = {
+  let dataSet = {
     type: "line",
     datasets: [
       {
@@ -69,9 +69,15 @@ export const Chart = ({ data, isPos }) => {
     <>
       <Line options={dataOptions} data={dataSet} />
       <div className="chart-buttons">
-        <button className="btn-day" onClick={() => setTimeFormat("24h")} >24h</button>
-        <button className="btn-week middle" onClick={() => setTimeFormat("7d")} >7d</button>
-        <button className="btn-year" onClick={() => setTimeFormat("1y")} >1y</button>
+        <button className="btn-day" onClick={() => setTimeFormat("24h")}>
+          24h
+        </button>
+        <button className="btn-week middle" onClick={() => setTimeFormat("7d")}>
+          7d
+        </button>
+        <button className="btn-year" onClick={() => setTimeFormat("1y")}>
+          1y
+        </button>
       </div>
     </>
   );

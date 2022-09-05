@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../css/App.css";
 import "../css/Stock.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 export const Home = (props) => {
   const [search, setSearch] = useState("");
@@ -42,17 +42,29 @@ export const Home = (props) => {
               >
                 View
               </div>
-              <div className="bar-img">
-                <img src={stock.image} alt="crypto" />
-              </div>
+
               <div className="stock-name">
+                <div className="bar-img">
+                  <img src={stock.image} alt="crypto" />
+                </div>
                 <h1>{stock.name}</h1>
+              </div>
+              {props.watchlist.indexOf(stock) === -1 ? (
                 <div className="sym-container" onClick={() => props.add(stock)}>
                   <p className="bar-symbol">{stock.symbol}</p>
                   <FontAwesomeIcon icon={faPlus} className="plus btn" />
                   <p className="plus">Add</p>
                 </div>
-              </div>
+              ) : (
+                <div
+                  className="sym-container"
+                  onClick={() => props.remove(stock)}
+                >
+                  <p className="bar-symbol">{stock.symbol}</p>
+                  <FontAwesomeIcon className="minus btn" icon={faMinus} />
+                  <p className="minus">Remove</p>
+                </div>
+              )}
 
               <div className="bar-data">
                 <p className="bar-price">

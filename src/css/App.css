@@ -7,7 +7,7 @@
 
 html {
   height: calc(100vh - 50px);
-  background-color: rgb(9, 0, 31);
+  background-color: #f4f4f4;
 }
 
 body {
@@ -18,43 +18,38 @@ body {
 }
 
 .navbar-container {
-  background-color: rgb(9, 0, 31);
   height: 60px;
   width: 100%;
-  padding: 20px;
 }
 
 .nav {
   height: 100%;
   font-size: 1.5rem;
-  padding: 20px;
+  padding: 0 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   list-style-type: none;
   justify-content: space-evenly;
   margin-left: 15px;
-  padding-bottom: 10px;
 }
 
 .nav-links {
   text-decoration: none;
-  color: white;
+  color: rgb(0, 123, 255);
   text-transform: uppercase;
   font-weight: 600;
-  text-shadow: 0 0 10px rgb(149, 0, 235), 0 0 20px rgb(56, 25, 129);
   cursor: pointer;
-  padding: 20px;
 }
 
 .nav-links:hover {
-  text-shadow: 0 0 10px rgb(149, 0, 235), 0 0 20px rgb(149, 0, 235),
-    0 0 30px rgb(149, 0, 235), 0 0 40px rgb(149, 0, 235);
+  color: rgba(0, 123, 255, 0.739);
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.405), 0 0 20px rgba(0, 123, 255, 0.137);
 }
 
 .main-container {
   height: 100%;
-  background-color: rgb(9, 0, 31);
+  width: 100%;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -65,7 +60,6 @@ body {
 }
 
 .stock-search {
-  background-color: rgb(9, 0, 31);
   color: white;
   width: 100%;
   padding: 40px;
@@ -75,18 +69,19 @@ body {
 .search-header {
   font-size: 1.4rem;
   margin-bottom: 10px;
-  text-shadow: 0 0 5px rgb(0, 188, 235), 0 0 10px rgb(0, 188, 235);
+  color: black;
   cursor: default;
 }
 
 .search-input {
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
+  width: 300px;
 }
 
 .chart-container {
   
-  width: 60%;
+  width: 50%;
   margin: auto;
 }
 
@@ -102,17 +97,16 @@ body {
   width: 50px;
   font-weight: bolder;
   cursor: pointer;
-  background-color: rgb(9, 0, 31);
+  background-color: rgb(0, 123, 255);
   color: white;
-  border: 1px solid rgb(114, 114, 114);
+  border: none;
   border-radius: 10px;
+  transition: all 0.3s ease-in-out;
 }
 
 .chart-buttons button:hover {
-  text-shadow: 0 0 10px rgb(149, 0, 235), 0 0 20px rgb(149, 0, 235),
-    0 0 30px rgb(149, 0, 235), 0 0 40px rgb(149, 0, 235);
-  box-shadow: 0 0 10px rgba(149, 0, 235, 0.808), 0 0 20px rgba(149, 0, 235, 0.808),
-    0 0 30px rgba(149, 0, 235, 0.562), 0 0 40px rgba(149, 0, 235, 0.281);
+  background-color: rgba(0, 123, 255, 0.739);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.405), 0 0 20px rgba(0, 123, 255, 0.137);
 }
 
 .middle {

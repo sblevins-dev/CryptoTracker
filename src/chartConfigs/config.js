@@ -7,7 +7,7 @@ export const dataOptions = {
   },
 
   animation: {
-    duration: 2000,
+    duration: 500,
   },
 
   maintainAspectRatio: true,
