@@ -12,6 +12,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Box } from "@mui/material";
 import background from "./images/test.jpg"
+import Header from "./components/Header";
 
 
 function App() {
@@ -146,7 +147,7 @@ function App() {
       {/* <div className="chart-container">
         <Chart data={graphData} name={coinName} isPos={isBool} />
       </div> */}
-
+      <Header />
       <Routes>
         <Route
           exact

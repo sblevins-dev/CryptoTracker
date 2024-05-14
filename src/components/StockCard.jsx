@@ -44,7 +44,7 @@ const StockCard = ({ stock }) => {
                 </Typography>
             </Box>
 
-            <Typography variant='body1' minWidth={'100px'} textAlign={'right'}>
+            <Typography variant='body1' minWidth={'100px'} textAlign={'right'} >
                 {stock.current_price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
             </Typography>
 

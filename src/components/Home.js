@@ -26,7 +26,8 @@ export const Home = ({ data }) => {
 
   return (
     <>
-      <Box textAlign={'center'} mt={2}
+      <Box
+        textAlign={'center'}
         zIndex={1}
       >
         <Typography variant="h4" fontWeight={500} color={'white'} marginBottom={'20px'}
@@ -67,17 +68,17 @@ export const Home = ({ data }) => {
           />
         </Box>
         <Typography variant="subtitle2" color={'white'}>
-          Data provided by: 
-          <a 
-          href="https://www.coingecko.com/en/api"
-          target="_blank"
-          style={{
-            color: 'orange',
-            marginLeft: '5px'
-          }}
+          Data provided by:
+          <a
+            href="https://www.coingecko.com/en/api"
+            target="_blank"
+            style={{
+              color: 'orange',
+              marginLeft: '5px'
+            }}
           >
             CoinGecko
-            </a>
+          </a>
         </Typography>
       </Box>
 
@@ -115,10 +116,10 @@ export const Home = ({ data }) => {
             }}
           >
             {filteredStocks.map(stock => (
-            <StockCard key={stock.id} stock={stock} />
-          ))}
+              <StockCard key={stock.id} stock={stock} />
+            ))}
           </Box>
-          
+
         </Box>
 
         {/* {filteredStocks.map((stock) => {
