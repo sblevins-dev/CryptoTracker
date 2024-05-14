@@ -80,7 +80,7 @@ export const Chart = ({ data, isPos }) => {
         data: determineTimeFormat(),
         borderColor: `${col}`,
         backgroundColor: `${col}`,
-        pointRadius: 2,
+        pointRadius: 1,
       },
     ],
   };
@@ -88,7 +88,7 @@ export const Chart = ({ data, isPos }) => {
   return (
     <>
       <Line options={dataOptions} data={dataSet} />
-      <div className="chart-buttons">
+      {/* <div className="chart-buttons">
         <button className="btn-day" onClick={() => setTimeFormat("24h")}>
           24h
         </button>
@@ -98,7 +98,7 @@ export const Chart = ({ data, isPos }) => {
         <button className="btn-year" onClick={() => setTimeFormat("1y")}>
           1y
         </button>
-      </div>
+      </div> */}
     </>
   );
 };

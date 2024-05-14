@@ -13,12 +13,13 @@ import '@fontsource/roboto/700.css';
 import { Box } from "@mui/material";
 import background from "./images/test.jpg"
 import Header from "./components/Header";
+import StockDetails from "./components/StockDetails";
 
 
 function App() {
   const [data, setData] = useState([]);
   const [list, setList] = useState([]);
-  const [graphData, setGraphData] = useState({});
+  const [graphData, setGraphData] = useState();
   const [coinName, setCoinName] = useState("");
   const [isBool, setIsBool] = useState(true);
 
@@ -56,25 +57,26 @@ function App() {
               days: "1",
             },
           }),
-          coinGecko.get(`/${coin.id}/market_chart/`, {
-            params: {
-              vs_currency: "usd",
-              days: "7",
-            },
-          }),
-          coinGecko.get(`/${coin.id}/market_chart/`, {
-            params: {
-              vs_currency: "usd",
-              days: "365",
-            },
-          }),
+          // coinGecko.get(`/${coin.id}/market_chart/`, {
+          //   params: {
+          //     vs_currency: "usd",
+          //     days: "7",
+          //   },
+          // }),
+          // coinGecko.get(`/${coin.id}/market_chart/`, {
+          //   params: {
+          //     vs_currency: "usd",
+          //     days: "365",
+          //   },
+          // }),
         ]);
         setGraphData({
           day: formatData(day.data.prices),
-          week: formatData(week.data.prices),
-          year: formatData(year.data.prices),
+          // week: formatData(week.data.prices),
+          // year: formatData(year.data.prices),
           detail: `${coin.id}`
         });
+        console.log(day.data.prices)
         // const res = await fetch(chartUrl);
         // const data = await res.json();
         // console.log(data)
@@ -157,6 +159,12 @@ function App() {
           path="/"
           element={
             <Home data={data} watchlist={list} remove={removeCoin} add={addCoin} getChartData={getChartData} />
+          }
+        />
+        <Route 
+          path="/details"
+          element={
+            <StockDetails getChartData={getChartData} data={graphData} isPos={isBool} />
           }
         />
         <Route

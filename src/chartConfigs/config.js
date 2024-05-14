@@ -10,7 +10,7 @@ export const dataOptions = {
     duration: 500,
   },
 
-  maintainAspectRatio: true,
+  maintainAspectRatio: false,
   responsive: true,
   scales: {
     xAxes: 
