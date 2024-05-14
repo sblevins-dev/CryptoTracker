@@ -128,7 +128,7 @@ function App() {
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        overflowY: 'scroll',
+        overflow: 'hidden',
         maxHeight: '100vh',
         minHeight: '100vh',
         "&::before": {

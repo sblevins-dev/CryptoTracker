@@ -16,6 +16,7 @@ const ListHeader = () => {
                 boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
                 backdropFilter: "blur(5px)",
                 border: "1px solid rgba(255, 255, 255, 0.2)",
+                marginRight: '10px'
             }}
         >
             <Typography variant="subtitle1" minWidth={"40px"} textAlign={'center'}>

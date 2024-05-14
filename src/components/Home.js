@@ -99,9 +99,26 @@ export const Home = ({ data }) => {
           }}
         >
           <ListHeader />
-          {filteredStocks.map(stock => (
+          <Box
+            sx={{
+              maxHeight: '600px',
+              overflowY: 'scroll',
+              '&::-webkit-scrollbar': {
+                width: '5px', // Width of the scrollbar
+              },
+              '&::-webkit-scrollbar-thumb': {
+                backgroundColor: '#888', // Color of the scrollbar thumb
+                borderRadius: '10px', // Rounded corners
+              },
+              scrollbarWidth: 'thin', // Fallback for Firefox
+              scrollbarColor: 'orange transparent', // Color of the scrollbar (thumb, track)
+            }}
+          >
+            {filteredStocks.map(stock => (
             <StockCard key={stock.id} stock={stock} />
           ))}
+          </Box>
+          
         </Box>
 
         {/* {filteredStocks.map((stock) => {
