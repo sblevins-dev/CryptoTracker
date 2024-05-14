@@ -1,17 +1,15 @@
 import "./css/App.css";
 import React, { useState, useEffect } from "react";
-import { Navbar } from "./components/Navbar";
+// import { Navbar } from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./components/Home";
 import { WatchList } from "./components/WatchList";
-import { Chart } from "./components/Chart";
 import coinGecko from "./api/coinGecko";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Box } from "@mui/material";
-import background from "./images/test.jpg"
 import Header from "./components/Header";
 import StockDetails from "./components/StockDetails";
 
@@ -76,17 +74,6 @@ function App() {
           // year: formatData(year.data.prices),
           detail: `${coin.id}`
         });
-        console.log(day.data.prices)
-        // const res = await fetch(chartUrl);
-        // const data = await res.json();
-        // console.log(data)
-        // setGraphData(data.prices)
-        // data.prices.map((month, index) => {
-        //   if (index % 30 == 0) {
-        //     newData.push(month);
-        //   }
-        // });
-        // newData.push(data.prices[data.prices.length - 1]);
       } catch (err) {
         console.log(err);
       }
@@ -128,12 +115,8 @@ function App() {
         flexDirection: 'column',
         alignItems: 'center',
         gap: 3,
-        // backgroundImage: `url(${background})`,
-        // backgroundSize: "cover",
-        // backgroundPosition: "center",
         background: "#000220",
         background: "radial-gradient(circle, rgba(167,121,17,1) 0%, rgba(100,73,255,1) 0%, rgba(0,1,19,1) 73%, rgba(0,2,32,1) 87%, rgba(0,1,22,1) 100%, rgba(0,1,19,1) 100%, rgba(89,60,20,1) 100%, rgba(146,98,20,1) 100%, rgba(255,168,0,1) 100%)",
-        // background: "linear-gradient(211deg, rgba(167,121,17,1) 0%, rgba(100,73,18,1) 0%, rgba(0,1,19,1) 30%, rgba(0,2,32,1) 53%, rgba(0,1,19,1) 72%, rgba(89,60,20,1) 100%, rgba(146,98,20,1) 100%, rgba(255,168,0,1) 100%)",
         overflow: 'hidden',
         maxHeight: '100vh',
         minHeight: '100vh',

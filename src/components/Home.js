@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../css/App.css";
 import "../css/Stock.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-import { Box, Button, Container, Divider, TextField, Typography } from "@mui/material";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { Box, Container, TextField, Typography } from "@mui/material";
 import StockCard from "./StockCard";
 import ListHeader from "./ListHeader";
 
@@ -85,13 +85,6 @@ export const Home = ({ data }) => {
 
 
       <Container>
-        {/* <Divider
-          variant="middle"
-          sx={{
-            marginBottom: '40px'
-          }}
-          color={'orange'}
-        /> */}
         <Box
           sx={{
             display: 'flex',

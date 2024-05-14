@@ -1,4 +1,4 @@
-import { Container, Button, Box, Typography, Divider } from '@mui/material';
+import { Container, Button, Box, Typography } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Chart } from './Chart';
