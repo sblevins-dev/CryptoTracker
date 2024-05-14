@@ -10,6 +10,7 @@ const Header = () => {
                 color={'#cc9200'}
                 fontFamily={'fantasy'}
                 letterSpacing={3}
+                fontWeight={300}
             >
                 Crypton
             </Typography>
