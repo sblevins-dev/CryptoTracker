@@ -1,37 +1,111 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/App.css";
 import "../css/Stock.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { Box, Button, Container, Divider, TextField, Typography } from "@mui/material";
+import StockCard from "./StockCard";
+import ListHeader from "./ListHeader";
 
-export const Home = (props) => {
-  const [search, setSearch] = useState("");
+
+export const Home = ({ data }) => {
+  const [value, setValue] = useState("");
   const [isShown, setIsShown] = useState(false);
 
   const handleChange = (e) => {
-    setSearch(e.target.value);
+    setValue(e.target.value);
   };
 
-  const filteredStocks = props.data.filter((coin) =>
-    coin.name.toLowerCase().includes(search.toLowerCase())
+  const filteredStocks = data.filter((coin) =>
+    coin.name.toLowerCase().includes(value.toLowerCase())
   );
+
+  useEffect(() => {
+
+  }, [filteredStocks])
 
   return (
     <>
-      <div className="stock-search">
-        <h1 className="search-header">Search</h1>
-        <form>
-          <input
-            type="text"
-            placeholder="Search"
-            className="search-input"
-            onChange={handleChange}
+      <Box textAlign={'center'} mt={2}
+        zIndex={1}
+      >
+        <Typography variant="h4" fontWeight={500} color={'white'} marginBottom={'20px'}
+          sx={{
+            borderBottom: '1px solid orange'
+          }}
+        >
+          Search Coins
+        </Typography>
+        <Box
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 5
+          }}
+        >
+          <TextField
+            variant="standard"
+            placeholder="Coin..."
+            size="small"
+            InputProps={{
+              style: {
+                color: 'white',
+                padding: '5px 10px'
+              }
+            }}
+            sx={{
+              background: "rgba(255, 255, 255, 0.09)",
+              boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+              backdropFilter: "blur(5px)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              color: 'white',
+              marginBottom: '10px',
+            }}
+            value={value}
+            onChange={(e) => handleChange(e)}
           />
-        </form>
-      </div>
+        </Box>
+        <Typography variant="subtitle2" color={'white'}>
+          Data provided by: 
+          <a 
+          href="https://www.coingecko.com/en/api"
+          target="_blank"
+          style={{
+            color: 'orange',
+            marginLeft: '5px'
+          }}
+          >
+            CoinGecko
+            </a>
+        </Typography>
+      </Box>
 
-      <div className="main-container">
-        {filteredStocks.map((stock) => {
+
+
+      <Container>
+        {/* <Divider
+          variant="middle"
+          sx={{
+            marginBottom: '40px'
+          }}
+          color={'orange'}
+        /> */}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            marginBottom: '20px',
+          }}
+        >
+          <ListHeader />
+          {filteredStocks.map(stock => (
+            <StockCard key={stock.id} stock={stock} />
+          ))}
+        </Box>
+
+        {/* {filteredStocks.map((stock) => {
+          <StockCard key={stock.id} stock={stock} />
           return (
             <div key={stock.id} className="bar-container">
               <div
@@ -86,8 +160,9 @@ export const Home = (props) => {
               </div>
             </div>
           );
-        })}
-      </div>
+        })} */}
+      </Container>
+
     </>
   );
 };

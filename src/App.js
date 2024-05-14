@@ -6,6 +6,13 @@ import { Home } from "./components/Home";
 import { WatchList } from "./components/WatchList";
 import { Chart } from "./components/Chart";
 import coinGecko from "./api/coinGecko";
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { Box } from "@mui/material";
+import background from "./images/test.jpg"
+
 
 function App() {
   const [data, setData] = useState([]);
@@ -105,15 +112,40 @@ function App() {
 
   useEffect(() => {
     // Call for coin list on page load
-    getCoinList();
+    // getCoinList();
+    // console.log(data)
   }, []);
 
   return (
-    <div className="App">
-      <Navbar data={data} />
-      <div className="chart-container">
+    <Box
+      className="App"
+      sx={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 3,
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        overflowY: 'scroll',
+        maxHeight: '100vh',
+        minHeight: '100vh',
+        "&::before": {
+          position: 'fixed',
+          content: '""',
+          bottom: 0,
+          left: 0,
+          height: '100%',
+          width: '100%',
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+        }
+      }}
+    >
+      {/* <Navbar data={data} /> */}
+      {/* <div className="chart-container">
         <Chart data={graphData} name={coinName} isPos={isBool} />
-      </div>
+      </div> */}
 
       <Routes>
         <Route
@@ -134,7 +166,7 @@ function App() {
           }
         />
       </Routes>
-    </div>
+    </Box>
   );
 }
 
