@@ -102,7 +102,7 @@ function App() {
 
   useEffect(() => {
     // Call for coin list on page load
-    // getCoinList();
+    getCoinList();
     // console.log(data)
   }, []);
 

@@ -14,9 +14,9 @@ const StockDetails = ({ getChartData, data, isPos }) => {
     console.log(data)
 
     useEffect(() => {
-        // if (data == undefined || data == null) {
-        //     getChartData(stock, stock.price_change_percentage_24h)
-        // }
+        if (data == undefined || data == null) {
+            getChartData(stock, stock.price_change_percentage_24h)
+        }
 
     }, [data])
 

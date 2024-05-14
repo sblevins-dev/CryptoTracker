@@ -6,13 +6,12 @@ const Header = () => {
         <Container sx={{ zIndex: 1 }}>
             <Typography
                 pt={2}
-                variant="h3"
+                variant="h4"
                 color={'#cc9200'}
-                fontFamily={'fantasy'}
                 letterSpacing={3}
-                fontWeight={300}
+                fontWeight={400}
             >
-                Crypton
+                CryptoWatch
             </Typography>
         </Container>
     )
