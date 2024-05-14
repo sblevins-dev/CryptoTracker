@@ -220,6 +220,7 @@ const StockDetails = ({ getChartData, data, isPos }) => {
                     sx={{
                         position: 'relative',
                         height: '100%',
+                        minHeight: '300px',
                         maxWidth: '600px',
                         width: { xs: '100%' }
                     }}
