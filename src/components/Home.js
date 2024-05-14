@@ -102,7 +102,8 @@ export const Home = ({ data }) => {
           <ListHeader />
           <Box
             sx={{
-              maxHeight: '600px',
+              maxHeight: '500px',
+              zIndex: 1,
               overflowY: 'scroll',
               '&::-webkit-scrollbar': {
                 width: '5px', // Width of the scrollbar
@@ -112,7 +113,7 @@ export const Home = ({ data }) => {
                 borderRadius: '10px', // Rounded corners
               },
               scrollbarWidth: 'thin', // Fallback for Firefox
-              scrollbarColor: 'orange transparent', // Color of the scrollbar (thumb, track)
+              scrollbarColor: '#cc9200 transparent', // Color of the scrollbar (thumb, track)
             }}
           >
             {filteredStocks.map(stock => (
