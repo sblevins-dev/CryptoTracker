@@ -5,13 +5,11 @@ import { Chart } from './Chart';
 
 const StockDetails = ({ getChartData, data, isPos }) => {
 
+    // Handle state logi
     const navigate = useNavigate();
     const location = useLocation();
 
     const stock = location.state;
-
-    console.log(stock)
-    console.log(data)
 
     useEffect(() => {
         if (data == undefined || data == null) {
